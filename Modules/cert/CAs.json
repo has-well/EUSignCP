@@ -1,0 +1,218 @@
+[
+	{
+		"issuerCNs": 				["КНЕДП - ІДД ДПС",
+									"Акредитований центр сертифікації ключів ІДД ДФС",
+									"Акредитований центр сертифікації ключів ІДД Міндоходів",
+									"Акредитований центр сертифікації ключів ІДД ДПС"],
+		"address": 					"acskidd.gov.ua",
+		"ocspAccessPointAddress":	"acskidd.gov.ua/services/ocsp/",
+		"ocspAccessPointPort":		"80",
+		"cmpAddress":				"acskidd.gov.ua",
+		"tspAddress":				"acskidd.gov.ua",
+		"tspAddressPort":			"80",
+		"directAccess":				true
+	},
+	{
+		"issuerCNs": 				["АЦСК органів юстиції України",
+									"CA of the Justice of Ukraine",
+									"АЦСК Держінформ'юсту"],
+		"address": 					"ca.informjust.ua",
+		"ocspAccessPointAddress":	"ca.informjust.ua/services/ocsp/",
+		"ocspAccessPointPort":		"80",
+		"cmpAddress":				"ca.informjust.ua",
+		"tspAddress":				"ca.informjust.ua",
+		"tspAddressPort":			"80",
+		"directAccess":				true
+	},
+	{
+		"issuerCNs": 				["Акредитований центр сертифікації ключів Укрзалізниці",
+									"ЦСК Укрзалізниці"],
+		"address": 					"csk.uz.gov.ua",
+		"ocspAccessPointAddress":	"csk.uz.gov.ua/services/ocsp/",
+		"ocspAccessPointPort":		"80",
+		"cmpAddress":				"csk.uz.gov.ua",
+		"tspAddress":				"csk.uz.gov.ua",
+		"tspAddressPort":			"80"
+	},
+	{ 
+		"issuerCNs": 				["АЦСК \"MASTERKEY\" ТОВ \"АРТ-МАСТЕР\"",
+									"ЦСК \"MASTERKEY\" ТОВ \"АРТ-МАСТЕР\"",
+									"ТОВ \"Арт-мастер\""],
+		"address": 					"masterkey.ua",
+		"ocspAccessPointAddress":	"ocsp.masterkey.ua/services/ocsp/",
+		"ocspAccessPointPort":		"80",
+		"cmpAddress":				"masterkey.ua",
+		"tspAddress":				"tsp.masterkey.ua/services/tsp/",
+		"tspAddressPort":			"80"
+	},
+	{ 
+		"issuerCNs": 				["АЦСК ТОВ \"КС\""],
+		"address": 					"ca.ksystems.com.ua",
+		"ocspAccessPointAddress":	"ca.ksystems.com.ua/services/ocsp/",
+		"ocspAccessPointPort":		"80",
+		"cmpAddress":				"ca.ksystems.com.ua",
+		"tspAddress":				"ca.ksystems.com.ua",
+		"tspAddressPort":			"80"
+	},
+	{ 
+		"issuerCNs": 				["АЦСК ДП «УСС»",
+									"АЦСК ДП \"УСС\""],
+		"address": 					"csk.uss.gov.ua",
+		"ocspAccessPointAddress":	"csk.uss.gov.ua/services/ocsp/",
+		"ocspAccessPointPort":		"80",
+		"cmpAddress":				"csk.uss.gov.ua",
+		"tspAddress":				"csk.uss.gov.ua",
+		"tspAddressPort":			"80",
+		"directAccess":				true
+	},
+	{ 
+		"issuerCNs": 				["АЦСК Публічного акціонерного товариства \"УкрСиббанк\""],
+		"address": 					"csk.ukrsibbank.com",
+		"ocspAccessPointAddress":	"csk.ukrsibbank.com/services/ocsp/",
+		"ocspAccessPointPort":		"80",
+		"cmpAddress":				"csk.ukrsibbank.com",
+		"tspAddress":				"csk.ukrsibbank.com",
+		"tspAddressPort":			"80"
+	},
+	{ 
+		"issuerCNs": 				["АЦСК АТ КБ «ПРИВАТБАНК»",
+									"АЦСК ПАТ КБ «ПРИВАТБАНК»",
+									"АЦСК «ПРИВАТБАНК»"],
+		"address": 					"acsk.privatbank.ua",
+		"ocspAccessPointAddress":	"acsk.privatbank.ua/services/ocsp/",
+		"ocspAccessPointPort":		"80",
+		"cmpAddress":				"acsk.privatbank.ua",
+		"tspAddress":				"acsk.privatbank.ua",
+		"tspAddressPort":			"80",
+		"directAccess":				true
+	},
+	{ 
+		"issuerCNs": 				["Акредитований Центр сертифікації ключів Збройних Сил",
+									"Акредитований центр сертифікації ключів Збройних Сил",
+									"Armed Forces of Ukraine Certificate authority"],
+		"address": 					"ca.mil.gov.ua",
+		"ocspAccessPointAddress":	"ca.mil.gov.ua/services/ocsp/",
+		"ocspAccessPointPort":		"80",
+		"cmpAddress":				"ca.mil.gov.ua",
+		"tspAddress":				"ca.mil.gov.ua",
+		"tspAddressPort":			"80"
+	},
+	{ 
+		"issuerCNs": 				["Кваліфікований надавач ЕДП \"Військова частина 2428\"", 
+									"АЦСК Державної прикордонної служби України"],
+		"address": 					"acsk.dpsu.gov.ua",
+		"ocspAccessPointAddress":	"acsk.dpsu.gov.ua/services/ocsp/",
+		"ocspAccessPointPort":		"80",
+		"cmpAddress":				"acsk.dpsu.gov.ua",
+		"tspAddress":				"acsk.dpsu.gov.ua",
+		"tspAddressPort":			"80"
+	},
+	{
+		"issuerCNs": 				["КНЕДП \"АЦСК ринку електричної енергії\"",
+									"АЦСК ринку електричної енергії"],
+		"address": 					"acsk.oree.com.ua",
+		"ocspAccessPointAddress":	"acsk.oree.com.ua/services/ocsp/",
+		"ocspAccessPointPort":		"80",
+		"cmpAddress":				"acsk.oree.com.ua",
+		"tspAddress":				"acsk.oree.com.ua",
+		"tspAddressPort":			"80"
+	},
+	{
+		"issuerCNs": 				["КНЕДП - АЦСК МВС України",
+									"АЦСК МВС України"],
+		"address": 					"ca.mvs.gov.ua",
+		"ocspAccessPointAddress":	"ca.mvs.gov.ua/services/ocsp/",
+		"ocspAccessPointPort":		"80",
+		"cmpAddress":				"ca.mvs.gov.ua",
+		"tspAddress":				"ca.mvs.gov.ua",
+		"tspAddressPort":			"80"
+	},
+	{
+		"issuerCNs": 				["АЦСК Національного банку України"],
+		"address": 					"canbu.bank.gov.ua",
+		"ocspAccessPointAddress":	"canbu.bank.gov.ua/services/ocsp/",
+		"ocspAccessPointPort":		"80",
+		"cmpAddress":				"canbu.bank.gov.ua",
+		"tspAddress":				"canbu.bank.gov.ua",
+		"tspAddressPort":			"80"
+	},
+	{ 
+		"issuerCNs": 				["АЦСК ТОВ \"Центр сертифікації ключів \"Україна\"",
+									"ТОВ \"Центр сертифікації ключів \"Україна\""],
+		"address": 					"uakey.com.ua",
+		"ocspAccessPointAddress":	"uakey.com.ua/services/ocsp/",
+		"ocspAccessPointPort":		"80",
+		"cmpAddress":				"uakey.com.ua",
+		"tspAddress":				"uakey.com.ua",
+		"tspAddressPort":			"80",
+		"directAccess":				true,
+		"cmpCompatibility":			3
+	},
+	{
+		"issuerCNs":				["Кваліфікований надавач ЕДП \"Казначейство\"",
+									"АЦСК Державної казначейської служби України",
+									"ЦСК Державної казначейської служби України"],
+		"address": 					"acsk.treasury.gov.ua",
+		"ocspAccessPointAddress":	"ocsp.treasury.gov.ua/OCSPsrv/ocsp",
+		"ocspAccessPointPort":		"80",
+		"cmpAddress":				"",
+		"tspAddress":				"ocsp.treasury.gov.ua/TspHTTPServer/tsp",
+		"tspAddressPort":			"80",
+		"certsInKey":				true,
+		"cmpCompatibility":			0
+	},
+	{
+		"issuerCNs":				["Акредитований центр сертифікації ключів ПАТ \"НДУ\"",
+									"Акредитований центр сертифікації ключів ПАТ НДУ"],
+		"address": 					"ca.csd.ua",
+		"ocspAccessPointAddress":	"ca.csd.ua/public/ocsp",
+		"ocspAccessPointPort":		"80",
+		"cmpAddress":				"ca.csd.ua/public/x509/cmp",
+		"tspAddress":				"ca.csd.ua/public/tsa",
+		"tspAddressPort":			"80",
+		"certsInKey":				true,
+		"cmpCompatibility":			3
+	},
+	{
+		"issuerCNs":				["АЦСК 'eSign' ТОВ 'Алтерсайн'"],
+		"address": 					"ca.altersign.com.ua",
+		"ocspAccessPointAddress":	"ca.altersign.com.ua/services/ocsp/",
+		"ocspAccessPointPort":		"80",
+		"cmpAddress":				"",
+		"tspAddress":				"",
+		"tspAddressPort":			"",
+		"cmpCompatibility":			0
+	},
+	{
+		"issuerCNs":				["АЦСК ДП 'Український інститут інтелектуальної власності'"],
+		"address": 					"acsk.uipv.org",
+		"ocspAccessPointAddress":	"ocsp.acsk.uipv.org",
+		"ocspAccessPointPort":		"80",
+		"cmpAddress":				"",
+		"tspAddress":				"",
+		"tspAddressPort":			"",
+		"cmpCompatibility":			0
+	},
+	{
+		"issuerCNs":				["Акредитований центр сертифікації ключів АТ \"Ощадбанк\""],
+		"address": 					"ca.oschadbank.ua",
+		"ocspAccessPointAddress":	"ca.oschadbank.ua/public/ocsp",
+		"ocspAccessPointPort":		"80",
+		"cmpAddress":				"",
+		"tspAddress":				"ca.oschadbank.ua/public/tsa",
+		"tspAddressPort":			"80",
+		"certsInKey":				true,
+		"cmpCompatibility":			0
+	},
+	{
+		"issuerCNs":				["АЦСК Генеральної прокуратури України"],
+		"address": 					"ca.gp.gov.ua",
+		"ocspAccessPointAddress":	"ca.gp.gov.ua/ocsp",
+		"ocspAccessPointPort":		"80",
+		"cmpAddress":				"ca.gp.gov.ua/cmp",
+		"tspAddress":				"ca.gp.gov.ua/tsp",
+		"tspAddressPort":			"80",
+		"certsInKey":				true,
+		"cmpCompatibility":			1
+	}
+]
