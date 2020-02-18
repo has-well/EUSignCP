@@ -10,9 +10,9 @@ app = Flask(__name__)
 @app.route('/')
 def main():
     resp = 'Entry poins for binary POST:<br>'
-    resp += request.host + url_for('GetSignsCount') + '<br>'
-    resp += request.host + url_for('GetSignerInfo') + '<br>'
-    resp += request.host + url_for('GetDataFromSignedData') + '<br>'
+    resp += 'http://' + request.host + url_for('GetSignsCount') + '<br>'
+    resp += 'http://' + request.host + url_for('GetSignerInfo') + '<br>'
+    resp += 'http://' + request.host + url_for('GetDataFromSignedData') + '<br>'
     return resp
 
 
@@ -63,7 +63,4 @@ def GetDataFromSignedData():
     EUUnload()
     return send_file(io.BytesIO(unsignedbin[0]), mimetype='application/octet-stream')
 
-
-
-app.run(host='0.0.0.0', port=5005, debug=True)
 

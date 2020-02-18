@@ -8,4 +8,4 @@ pip install --upgrade pip
 
 pip install -r requirements.txt
 
-python3 api.py
+gunicorn -D -w 1 -b 0.0.0.0:5005 api:app
