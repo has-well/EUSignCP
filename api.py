@@ -8,6 +8,7 @@ EU_OCSP_ACCESS_INFO_MODE_SETTINGS = {'bEnabled': True}
 EU_FILE_STORE_SETTINGS = {'szPath':	'~/EUSignCP/Modules/cert', 'bCheckCRLs': True, 'bAutoRefresh': True, 'bOwnCRLsOnly': False,
                           'bFullAndDeltaCRLs': False, 'bAutoDownloadCRLs': True, 'bSaveLoadedCerts':True, 'dwExpireTime': 86400}
 
+
 app = Flask(__name__)
 
 
@@ -25,6 +26,8 @@ def GetSignsCount():
     signedbin = request.stream.read()
     EULoad()
     intF = EUGetInterface()
+    intF.SetOCSPSettings(bUseOCSP=EU_OCSP_SETTINGS)
+    intF.SetOCSPAccessInfoModeSettings(pbEnabled=EU_OCSP_ACCESS_INFO_MODE_SETTINGS)
     intF.Initialize()
     signs_count = []
     try:
@@ -41,6 +44,8 @@ def GetSignerInfo():
     signedbin = request.stream.read()
     EULoad()
     intF = EUGetInterface()
+    intF.SetOCSPSettings(bUseOCSP=EU_OCSP_SETTINGS)
+    intF.SetOCSPAccessInfoModeSettings(pbEnabled=EU_OCSP_ACCESS_INFO_MODE_SETTINGS)
     intF.Initialize()
     signer_info = {}
     try:
@@ -57,6 +62,8 @@ def GetDataFromSignedData():
     signedbin = request.stream.read()
     EULoad()
     intF = EUGetInterface()
+    intF.SetOCSPSettings(bUseOCSP=EU_OCSP_SETTINGS)
+    intF.SetOCSPAccessInfoModeSettings(pbEnabled=EU_OCSP_ACCESS_INFO_MODE_SETTINGS)
     intF.Initialize()
     unsignedbin = []
     try:
