@@ -3,6 +3,10 @@ import io
 from flask import Flask, request, jsonify, send_file, url_for
 from EUSignCP import *
 
+EU_OCSP_SETTINGS = {'bUseOCSP': True, 'bBeforeStore': True, 'szAddress': '193.111.173.6', 'szPort': '443'}
+EU_OCSP_ACCESS_INFO_MODE_SETTINGS = {'bEnabled': True}
+EU_FILE_STORE_SETTINGS = {'szPath':	'~/EUSignCP/Modules/cert', 'bCheckCRLs': True, 'bAutoRefresh': True, 'bOwnCRLsOnly': False,
+                          'bFullAndDeltaCRLs': False, 'bAutoDownloadCRLs': True, 'bSaveLoadedCerts':True, 'dwExpireTime': 86400}
 
 app = Flask(__name__)
 
@@ -35,12 +39,9 @@ def GetSignsCount():
 @app.route('/GetSignerInfo', methods=['POST'])
 def GetSignerInfo():
     signedbin = request.stream.read()
-    EU_OCSP_SETTINGS = {'bUseOCSP': True, 'bBeforeStore': True, 'szAddress': '193.111.173.6', 'szPort': '443'}
-    EU_OCSP_ACCESS_INFO_MODE_SETTINGS = {'bEnabled': True}
     EULoad()
     intF = EUGetInterface()
     intF.Initialize()
-    print(EU_OCSP_SETTINGS, )
     signer_info = {}
     try:
         intF.GetSignerInfo(0, None, signedbin, len(signedbin), signer_info, None)
