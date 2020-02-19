@@ -16,7 +16,7 @@ def main():
     resp += 'http://' + request.host + url_for('GetSignsCount') + '<br>'
     resp += 'http://' + request.host + url_for('GetSignerInfo') + '<br>'
     resp += 'http://' + request.host + url_for('GetDataFromSignedData') + '<br>'
-    resp += 'http://' + request.host + url_for('VerifyData') + '<br>'
+    resp += 'http://' + request.host + url_for('VerifyDataInternal') + '<br>'
     return resp
 
 
@@ -76,8 +76,8 @@ def GetDataFromSignedData():
     EUUnload()
     return send_file(io.BytesIO(unsignedbin[0]), mimetype='application/octet-stream')
 
-@app.route('/VerifyData', methods=['POST'])
-def VerifyData():
+@app.route('/VerifyDataInternal', methods=['POST'])
+def VerifyDataInternal():
     signedbin = request.stream.read()
     EULoad()
     intF = EUGetInterface()
@@ -85,13 +85,15 @@ def VerifyData():
     intF.SetFileStoreSettings(pszPath=EU_FILE_STORE_SETTINGS)
     intF.SetOCSPSettings(bUseOCSP=EU_OCSP_SETTINGS)
     intF.SetOCSPAccessInfoModeSettings(bEnabled=EU_OCSP_ACCESS_INFO_MODE_SETTINGS)
+    data = {}
     sign = {}
     try:
-        intF.VerifyData(signedbin, len(signedbin), None, signedbin, len(signedbin), sign)
+        intF.VerifyDataInternal(None, signedbin, len(signedbin), data, sign)
     except Exception as e:
         return jsonify({'Error': repr(e)})
     intF.Finalize()
     EUUnload()
-    return jsonify(sign)
+    return jsonify([data, sign])
+
 
 
