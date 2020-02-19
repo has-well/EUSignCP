@@ -33,6 +33,13 @@ def GetSignsCount():
         intF.GetSignsCount(None, signedbin, len(signedbin), signs_count)
     except Exception as e:
         return jsonify([repr(e)])
+    #Test
+    cert = {}
+    intF.EnumOwnCertificates(0, cert)
+    print(cert)
+    print()
+    for c in EU_CERTIFICATES: print(c)
+    #test
     intF.Finalize()
     EUUnload()
     return jsonify(signs_count)
