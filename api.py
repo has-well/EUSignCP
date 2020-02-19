@@ -1,3 +1,4 @@
+import io
 from flask import Flask, request, jsonify, send_file, url_for
 from EUSignCP import *
 
