@@ -28,7 +28,7 @@ def GetSignsCount():
     intF = EUGetInterface()
     intF.Initialize()
     intF.SetOCSPSettings(bUseOCSP=EU_OCSP_SETTINGS)
-    intF.SetOCSPAccessInfoModeSettings(pbEnabled=EU_OCSP_ACCESS_INFO_MODE_SETTINGS)
+    intF.SetOCSPAccessInfoModeSettings(bEnabled=EU_OCSP_ACCESS_INFO_MODE_SETTINGS)
     signs_count = []
     try:
         intF.GetSignsCount(None, signedbin, len(signedbin), signs_count)
@@ -46,7 +46,7 @@ def GetSignerInfo():
     intF = EUGetInterface()
     intF.Initialize()
     intF.SetOCSPSettings(bUseOCSP=EU_OCSP_SETTINGS)
-    intF.SetOCSPAccessInfoModeSettings(pbEnabled=EU_OCSP_ACCESS_INFO_MODE_SETTINGS)
+    intF.SetOCSPAccessInfoModeSettings(bEnabled=EU_OCSP_ACCESS_INFO_MODE_SETTINGS)
     signer_info = {}
     try:
         intF.GetSignerInfo(0, None, signedbin, len(signedbin), signer_info, None)
@@ -64,7 +64,7 @@ def GetDataFromSignedData():
     intF = EUGetInterface()
     intF.Initialize()
     intF.SetOCSPSettings(bUseOCSP=EU_OCSP_SETTINGS)
-    intF.SetOCSPAccessInfoModeSettings(pbEnabled=EU_OCSP_ACCESS_INFO_MODE_SETTINGS)
+    intF.SetOCSPAccessInfoModeSettings(bEnabled=EU_OCSP_ACCESS_INFO_MODE_SETTINGS)
     unsignedbin = []
     try:
         intF.GetDataFromSignedData(None, signedbin, len(signedbin), unsignedbin)
