@@ -1,5 +1,3 @@
-import io
-
 from flask import Flask, request, jsonify, send_file, url_for
 from EUSignCP import *
 
@@ -35,9 +33,17 @@ def GetSignsCount():
         intF.GetSignsCount(None, signedbin, len(signedbin), signs_count)
     except Exception as e:
         return jsonify([repr(e)])
+    #Test
     tmp = {}
     intF.GetFileStoreSettings(pszPath=tmp)
     print(tmp)
+    #Test
+    cert = {}
+    intF.EnumOwnCertificates(0, cert)
+    print(cert)
+    print()
+    for c in EU_CERTIFICATES: print(c)
+    #test
     intF.Finalize()
     EUUnload()
     return jsonify(signs_count)
