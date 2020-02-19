@@ -26,9 +26,9 @@ def GetSignsCount():
     signedbin = request.stream.read()
     EULoad()
     intF = EUGetInterface()
+    intF.Initialize()
     intF.SetOCSPSettings(bUseOCSP=EU_OCSP_SETTINGS)
     intF.SetOCSPAccessInfoModeSettings(pbEnabled=EU_OCSP_ACCESS_INFO_MODE_SETTINGS)
-    intF.Initialize()
     signs_count = []
     try:
         intF.GetSignsCount(None, signedbin, len(signedbin), signs_count)
@@ -44,9 +44,9 @@ def GetSignerInfo():
     signedbin = request.stream.read()
     EULoad()
     intF = EUGetInterface()
+    intF.Initialize()
     intF.SetOCSPSettings(bUseOCSP=EU_OCSP_SETTINGS)
     intF.SetOCSPAccessInfoModeSettings(pbEnabled=EU_OCSP_ACCESS_INFO_MODE_SETTINGS)
-    intF.Initialize()
     signer_info = {}
     try:
         intF.GetSignerInfo(0, None, signedbin, len(signedbin), signer_info, None)
@@ -62,9 +62,9 @@ def GetDataFromSignedData():
     signedbin = request.stream.read()
     EULoad()
     intF = EUGetInterface()
+    intF.Initialize()
     intF.SetOCSPSettings(bUseOCSP=EU_OCSP_SETTINGS)
     intF.SetOCSPAccessInfoModeSettings(pbEnabled=EU_OCSP_ACCESS_INFO_MODE_SETTINGS)
-    intF.Initialize()
     unsignedbin = []
     try:
         intF.GetDataFromSignedData(None, signedbin, len(signedbin), unsignedbin)
