@@ -16,6 +16,7 @@ def main():
     resp += 'http://' + request.host + url_for('GetSignsCount') + '<br>'
     resp += 'http://' + request.host + url_for('GetSignerInfo') + '<br>'
     resp += 'http://' + request.host + url_for('GetDataFromSignedData') + '<br>'
+    resp += 'http://' + request.host + url_for('VerifyDataOnTimeEx') + '<br>'
     return resp
 
 
@@ -75,4 +76,24 @@ def GetDataFromSignedData():
     EUUnload()
     return send_file(io.BytesIO(unsignedbin[0]), mimetype='application/octet-stream')
 
+@app.route('/VerifyDataOnTimeEx', methods=['POST'])
+def VerifyDataOnTimeEx():
+    signedbin = request.stream.read()
+    EULoad()
+    intF = EUGetInterface()
+    intF.Initialize()
+    intF.SetFileStoreSettings(pszPath=EU_FILE_STORE_SETTINGS)
+    intF.SetOCSPSettings(bUseOCSP=EU_OCSP_SETTINGS)
+    intF.SetOCSPAccessInfoModeSettings(bEnabled=EU_OCSP_ACCESS_INFO_MODE_SETTINGS)
+    datetime = {}
+    try:
+        intF.VerifyDataOnTimeEx(signedbin, len(signedbin), 0, None, signedbin, len(signedbin), None, True, False, datetime)
+    except Exception as e:
+        return jsonify({'Error': repr(e)})
+    intF.Finalize()
+    EUUnload()
+    return jsonify(datetime)
+
+
+	
 
