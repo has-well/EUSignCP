@@ -3,12 +3,20 @@ from flask import Flask, request, jsonify, send_file, url_for
 from EUSignCP import *
 
 EU_OCSP_SETTINGS = {'bUseOCSP': True, 'bBeforeStore': True, 'szAddress': '193.111.173.6', 'szPort': '443'}
-EU_OCSP_ACCESS_INFO_MODE_SETTINGS = {'bEnabled': True}
+EU_LDAP_SETTINGS = {'bUseLDAP': True, 'szAddress': 'ca.ksystems.com.ua', 'szPort': '389', 'bAnonymous': True, 'szUser': '', 'szPassword': ''}
+
 EU_FILE_STORE_SETTINGS = {'szPath': '~/EUSignCP/Modules/cert', 'bCheckCRLs': True, 'bAutoRefresh': True, 'bOwnCRLsOnly': False,
                           'bFullAndDeltaCRLs': False, 'bAutoDownloadCRLs': True, 'bSaveLoadedCerts':True, 'dwExpireTime': 86400}
 
+EULoad()
+intF = EUGetInterface()
+intF.Initialize()
+intF.SetFileStoreSettings(pszPath=EU_FILE_STORE_SETTINGS)
+intF.SetOCSPSettings(bUseOCSP=EU_OCSP_SETTINGS)
+intF.SetLDAPSettings (bUseLDAP=EU_LDAP_SETTINGS)
 
 app = Flask(__name__)
+
 
 
 @app.route('/')
@@ -29,7 +37,7 @@ def GetSignsCount():
     intF.Initialize()
     intF.SetFileStoreSettings(pszPath=EU_FILE_STORE_SETTINGS)
     intF.SetOCSPSettings(bUseOCSP=EU_OCSP_SETTINGS)
-    intF.SetOCSPAccessInfoModeSettings(bEnabled=EU_OCSP_ACCESS_INFO_MODE_SETTINGS)
+    intF.SetLDAPSettings (bUseLDAP=EU_LDAP_SETTINGS)
     signs_count = []
     try:
         intF.GetSignsCount(None, signedbin, len(signedbin), signs_count)
@@ -37,6 +45,7 @@ def GetSignsCount():
         return jsonify({'Error': repr(e)})
     intF.Finalize()
     EUUnload()
+    
     return jsonify(signs_count)
 
 
@@ -48,7 +57,7 @@ def GetSignerInfo():
     intF.Initialize()
     intF.SetFileStoreSettings(pszPath=EU_FILE_STORE_SETTINGS)
     intF.SetOCSPSettings(bUseOCSP=EU_OCSP_SETTINGS)
-    intF.SetOCSPAccessInfoModeSettings(bEnabled=EU_OCSP_ACCESS_INFO_MODE_SETTINGS)
+    intF.SetLDAPSettings (bUseLDAP=EU_LDAP_SETTINGS)
     signer_info = {}
     try:
         intF.GetSignerInfo(0, None, signedbin, len(signedbin), signer_info, None)
@@ -67,7 +76,7 @@ def GetDataFromSignedData():
     intF.Initialize()
     intF.SetFileStoreSettings(pszPath=EU_FILE_STORE_SETTINGS)
     intF.SetOCSPSettings(bUseOCSP=EU_OCSP_SETTINGS)
-    intF.SetOCSPAccessInfoModeSettings(bEnabled=EU_OCSP_ACCESS_INFO_MODE_SETTINGS)
+    intF.SetLDAPSettings (bUseLDAP=EU_LDAP_SETTINGS)
     unsignedbin = []
     try:
         intF.GetDataFromSignedData(None, signedbin, len(signedbin), unsignedbin)
@@ -85,7 +94,7 @@ def VerifyDataInternal():
     intF.Initialize()
     intF.SetFileStoreSettings(pszPath=EU_FILE_STORE_SETTINGS)
     intF.SetOCSPSettings(bUseOCSP=EU_OCSP_SETTINGS)
-    intF.SetOCSPAccessInfoModeSettings(bEnabled=EU_OCSP_ACCESS_INFO_MODE_SETTINGS)
+    intF.SetLDAPSettings (bUseLDAP=EU_LDAP_SETTINGS)
     data = {}
     sign = {}
     try:
@@ -95,6 +104,4 @@ def VerifyDataInternal():
     intF.Finalize()
     EUUnload()
     return jsonify([data, sign])
-
-
 
