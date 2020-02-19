@@ -1,7 +1,7 @@
 import io
 
 from flask import Flask, request, jsonify, send_file, url_for
-from EUSignCP import EULoad, EUUnload, EUGetInterface
+from EUSignCP import *
 
 
 app = Flask(__name__)
@@ -26,7 +26,7 @@ def GetSignsCount():
     try:
         intF.GetSignsCount(None, signedbin, len(signedbin), signs_count)
     except Exception as e:
-        return jsonify(e)
+        return jsonify([repr(e)])
     intF.Finalize()
     EUUnload()
     return jsonify(signs_count)
@@ -35,14 +35,17 @@ def GetSignsCount():
 @app.route('/GetSignerInfo', methods=['POST'])
 def GetSignerInfo():
     signedbin = request.stream.read()
+    EU_OCSP_SETTINGS = {'bUseOCSP': True, 'bBeforeStore': True, 'szAddress': '193.111.173.6', 'szPort': '443'}
+    EU_OCSP_ACCESS_INFO_MODE_SETTINGS = {'bEnabled': True}
     EULoad()
     intF = EUGetInterface()
     intF.Initialize()
+    print(EU_OCSP_SETTINGS, )
     signer_info = {}
     try:
         intF.GetSignerInfo(0, None, signedbin, len(signedbin), signer_info, None)
     except Exception as e:
-        return jsonify(e)
+        return jsonify([repr(e)])
     intF.Finalize()
     EUUnload()
     return jsonify(signer_info)
@@ -58,7 +61,7 @@ def GetDataFromSignedData():
     try:
         intF.GetDataFromSignedData(None, signedbin, len(signedbin), unsignedbin)
     except Exception as e:
-        return jsonify(e)
+        return jsonify([repr(e)])
     intF.Finalize()
     EUUnload()
     return send_file(io.BytesIO(unsignedbin[0]), mimetype='application/octet-stream')
