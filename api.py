@@ -5,7 +5,7 @@ from EUSignCP import *
 
 EU_OCSP_SETTINGS = {'bUseOCSP': True, 'bBeforeStore': True, 'szAddress': '193.111.173.6', 'szPort': '443'}
 EU_OCSP_ACCESS_INFO_MODE_SETTINGS = {'bEnabled': True}
-EU_FILE_STORE_SETTINGS = {'szPath':	'~/EUSignCP/Modules/cert', 'bCheckCRLs': True, 'bAutoRefresh': True, 'bOwnCRLsOnly': False,
+EU_FILE_STORE_SETTINGS = {'szPath': '~/EUSignCP/Modules/cert', 'bCheckCRLs': True, 'bAutoRefresh': True, 'bOwnCRLsOnly': False,
                           'bFullAndDeltaCRLs': False, 'bAutoDownloadCRLs': True, 'bSaveLoadedCerts':True, 'dwExpireTime': 86400}
 
 
@@ -27,6 +27,7 @@ def GetSignsCount():
     EULoad()
     intF = EUGetInterface()
     intF.Initialize()
+    intF.SetFileStoreSettings(pszPath=EU_FILE_STORE_SETTINGS)
     intF.SetOCSPSettings(bUseOCSP=EU_OCSP_SETTINGS)
     intF.SetOCSPAccessInfoModeSettings(bEnabled=EU_OCSP_ACCESS_INFO_MODE_SETTINGS)
     signs_count = []
@@ -45,6 +46,7 @@ def GetSignerInfo():
     EULoad()
     intF = EUGetInterface()
     intF.Initialize()
+    intF.SetFileStoreSettings(pszPath=EU_FILE_STORE_SETTINGS)
     intF.SetOCSPSettings(bUseOCSP=EU_OCSP_SETTINGS)
     intF.SetOCSPAccessInfoModeSettings(bEnabled=EU_OCSP_ACCESS_INFO_MODE_SETTINGS)
     signer_info = {}
@@ -63,6 +65,7 @@ def GetDataFromSignedData():
     EULoad()
     intF = EUGetInterface()
     intF.Initialize()
+    intF.SetFileStoreSettings(pszPath=EU_FILE_STORE_SETTINGS)
     intF.SetOCSPSettings(bUseOCSP=EU_OCSP_SETTINGS)
     intF.SetOCSPAccessInfoModeSettings(bEnabled=EU_OCSP_ACCESS_INFO_MODE_SETTINGS)
     unsignedbin = []
