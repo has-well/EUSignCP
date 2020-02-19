@@ -35,6 +35,9 @@ def GetSignsCount():
         intF.GetSignsCount(None, signedbin, len(signedbin), signs_count)
     except Exception as e:
         return jsonify([repr(e)])
+    tmp = {}
+    intF.GetFileStoreSettings(pszPath=tmp)
+    print(tmp)
     intF.Finalize()
     EUUnload()
     return jsonify(signs_count)
